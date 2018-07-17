@@ -1,5 +1,12 @@
 #生成一份配置
-cd ..
+cd ../../
+rootspace=`dirname $0`
+rootspace=`realpath $rootspace`
+root_name=$(basename $rootspace)
+echo $root_name
+cd -
+
+cd ../
 workspace=`dirname $0`
 workspace=`realpath $workspace`
 proj_name=$(basename $workspace)
@@ -16,7 +23,7 @@ mkdir -p ${workspace}/log
 mkdir -p ${workspace}/etc
 cd ${workspace}/etc
 
-echo workspace = \"../proj/${proj_name}/\" > ${config}
+echo workspace = \"../${root_name}/${proj_name}/\" > ${config}
 echo clustername = \"${clustername}\" >> ${config}
 echo thread = 8 >> ${config}
 echo logpath = \".\" >> ${config}
@@ -27,10 +34,10 @@ echo 'bootstrap = "snlua bootstrap"' >> ${config}
 echo 'lualoader = "lualib/loader.lua"' >> ${config}
 #echo 'preload = workspace.."script/global.lua"' >> ${config}
 echo 'snax = workspace.."script/?.lua"' >> ${config}
-echo 'luaservice = workspace.."script/service/?.lua;"..workspace.."../../service/?.lua;".."./service/?.lua;".."./liblua/?.lua;"' >> ${config}
-echo 'cpath = workspace.."../../luaclib/?.so;".."./cservice/?.so;./luaclib/?.so"' >> ${config}
-echo 'lua_path = workspace.."../../lualib/?.lua;"..workspace.."script/?.lua;"..workspace.."../../common/?.lua;".."./lualib/?.lua;"' >> ${config}
-echo 'lua_cpath = workspace.."../../luaclib/?.so;".."./luaclib/?.so;"'  >> ${config}
+echo 'luaservice = workspace.."script/service/?.lua;"..workspace.."../../common/service/?.lua;".."./service/?.lua;".."./liblua/?.lua;"' >> ${config}
+echo 'cpath = workspace.."luaclib/?.so;"..workspace.."../../luaclib/?.so;".."./cservice/?.so;./luaclib/?.so"' >> ${config}
+echo 'lua_path = workspace.."script/?.lua;"..workspace.."lualib/?.lua;"..workspace.."../../common/lualib/?.lua;".."./lualib/?.lua;"' >> ${config}
+echo 'lua_cpath = workspace.."luaclib/?.so;"..workspace.."../../common/luaclib/?.so;".."./luaclib/?.so;"'  >> ${config}
 
 if [ "${is_deamon}" == "true" ]
 then
