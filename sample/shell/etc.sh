@@ -1,14 +1,12 @@
 #生成一份配置
 cd ../../
-rootspace=`dirname $0`
-rootspace=`realpath $rootspace`
+rootspace=$(cd $(dirname $0); pwd)
 root_name=$(basename $rootspace)
 echo $root_name
 cd -
 
 cd ../
-workspace=`dirname $0`
-workspace=`realpath $workspace`
+workspace=$(cd $(dirname $0); pwd)
 proj_name=$(basename $workspace)
 echo $proj_name
 cd -

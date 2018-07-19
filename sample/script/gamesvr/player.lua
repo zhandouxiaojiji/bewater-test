@@ -30,6 +30,7 @@ function player:load_data(account)
         return false
     end
     self:init_by_data(data)
+    self:online()
     return true
 end
 
