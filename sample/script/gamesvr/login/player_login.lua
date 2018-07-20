@@ -1,9 +1,9 @@
 local skynet    = require "skynet"
 local db        = require "mongo_helper"
-local wechat    = require "auth.wechat"
+local wx        = require "auth.wx"
+local aes       = require "auth.aes"
+local base64    = require "auth.base64"
 local json      = require "cjson"
-local aes       = require "aes"
-local base64    = require "base64"
 local util      = require "util"
 local def       = require "def"
 local conf      = require "conf"
@@ -12,6 +12,9 @@ local player
 local M = {}
 function M:ctor(ctx)
     player = ctx
+
+    self.openid = nil
+    self.session_key = nil
 end
 
 function M:login(wx_data, login_type, account)
@@ -20,16 +23,24 @@ function M:login(wx_data, login_type, account)
     if login_type == def.LoginType.NORMAL then
         account = "test"
     elseif login_type == def.LoginType.WX then
-        local ret, resp = wechat.check_code(wx_code, conf.appid, conf.appsecret)
-        resp = json.decode(resp)
+        local resp = wx.check_code(wx_code)
         if resp.errcode then
             ret = false
-        end
-        local err, wx_info = aes.decrypt(base64.decode(encry_data), 
-            base64.decode(resp.session_key), base64.decode(wx_iv))
-        if err == 0 then
-            wx_info = json.decode(wx_info)
-            util.printdump(wx_info)
+            print("check_code error", resp.errcode)
+        else
+            self.session_key = resp.session_key
+            self.openid = resp.openid
+            account = self.openid
+            print("session_key", self.session_key, self.openid)
+            local wx_info = aes.decrypt(base64.decode(encry_data), 
+                base64.decode(resp.session_key), base64.decode(wx_iv))
+            if wx_info then
+                wx_info = json.decode(wx_info)
+                util.printdump(wx_info)
+                ret = true
+            else
+                ret = false
+            end
         end
     elseif login_type == def.LoginType.WX_RECONNECT then
         -- todo

@@ -1,12 +1,16 @@
-local skynet = require "skynet"
-local db = require "mongo_helper"
-local def = require "def"
-local conf = require "conf"
+local skynet    = require "skynet"
+local db        = require "mongo_helper"
+local def       = require "def"
+local conf      = require "conf"
+local wx        = require "auth.wx"
+local util      = require "util"
 
 local player = {}
 function player:init(gate, sock_id)
     self.gate = gate
     self.sock_id = sock_id
+
+    wx.init(conf.appid, conf.appsecret)
 
     self:load_module("user",    "gamesvr.user.player_user")
     self:load_module("login",   "gamesvr.login.player_login")
@@ -48,6 +52,15 @@ end
 
 function player:online()
     self.user:sync_all()
+    local ret = wx.set_user_storage(self.login.openid, self.login.session_key, {
+        score = 100,
+        gold = 300,
+    }) 
+    util.printdump(ret)
+    local ret = wx.remove_user_storage(self.login.openid, self.login.session_key, {
+        "score", "gold"
+    }) 
+    util.printdump(ret)
 end
 
 function player:send(op, msg)

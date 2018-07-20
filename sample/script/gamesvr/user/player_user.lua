@@ -1,4 +1,6 @@
-local skynet = require "skynet"
+local skynet    = require "skynet"
+local util      = require "util"
+local wx        = require "auth.wx"
 
 local player
 local M = {}
@@ -17,6 +19,14 @@ function M:base_data()
         level = self.level,
         gold = self.gold,
     }
+end
+
+function M:set_user_storage()
+    local ret = wx.set_user_storage(player.login.openid, player.login.session_key, {
+        score = 100,
+        gold = 300,
+    }) 
+    util.printdump(ret)
 end
 
 function M:sync_all()
