@@ -1,84 +1,41 @@
 local skynet = require "skynet"
 local socket = require "websocketclient"
 
-local function send_package(fd, pack)
-	-- local package = string.pack(">s2", pack)
-	socket.send(fd, pack)
-end
+local function send_text(fd, data)
+    local fin = true
+    local opcode = 0x1
+    local finbit, mask_bit
+    if fin then
+        finbit = 0x80
+    else
+        finbit = 0
+    end
 
-local function recv_package(fd)
-	local r , istimeout= socket.recv(fd, 100)
-	if not r then
-		return nil
-	end
-	if r == ""  and istimeout == 0 then
-		error "Server closed"
-	end
-	return r
-end
+    local frame = string.pack("B", finbit | opcode)
+    local l = #data
 
+    if mask_outgoing then
+        mask_bit = 0x80
+    else
+        mask_bit = 0
+    end
 
-local function send_request(fd, str)
-    socket.send(fd, string.pack(">s2", str))
-    --socket.send(fd, str)
-end
+    if l < 126 then
+        frame = frame .. string.pack("B", l | mask_bit)
+    elseif l < 0xFFFF then
+        frame = frame .. string.pack(">BH", 126 | mask_bit, l)
+    else 
+        frame = frame .. string.pack(">BL", 127 | mask_bit, l)
+    end
 
-local last = ""
+    frame = frame .. data
 
-local function print_request(name, args)
-	print("REQUEST", name)
-	if args then
-		for k,v in pairs(args) do
-			print(k,v)
-		end
-	end
-end
-
-local function print_response(session, args)
-	print("RESPONSE", session)
-	if args then
-		for k,v in pairs(args) do
-			print(k,v)
-		end
-	end
-end
-
-local function print_package(t, ...)
-	if t == "REQUEST" then
-		print_request(...)
-	else
-		assert(t == "RESPONSE")
-		print_response(...)
-	end
-end
-
-local function dispatch_package(fd)
-	while true do
-		local v
-		v = recv_package(fd)
-		if not v  or v == "" then
-			break
-		end
-
-		print_package(host:dispatch(v))
-	end
+    socket.send(fd, frame)
 end
 
 skynet.start(function()		
-    local fd = assert(socket.connect("127.0.0.1", 8653))
-    send_request(fd, "shake")
-    while true do
-        dispatch_package(fd)
-        local cmd = socket.readstdin()
-        if cmd then
-            if cmd == "quit" then
-                send_request("quit")
-            else
-                send_request("get", { what = cmd })
-            end
-        else
-            socket.usleep(100)
-        end
-    end
+    --local fd = assert(socket.connect("127.0.0.1", 8653))
+    local fd = assert(socket.connect("127.0.0.1", 8002))
+    send_text(fd, "hello") 
 end)
 
