@@ -34,7 +34,7 @@ echo 'lualoader = "lualib/loader.lua"' >> ${config}
 echo 'snax = workspace.."script/?.lua"' >> ${config}
 echo 'luaservice = workspace.."script/service/?.lua;"..workspace.."../../common/service/?.lua;".."./service/?.lua;".."./liblua/?.lua;"' >> ${config}
 echo 'cpath = workspace.."luaclib/?.so;"..workspace.."../../luaclib/?.so;".."./cservice/?.so;./luaclib/?.so"' >> ${config}
-echo 'lua_path = workspace.."script/?.lua;"..workspace.."script/lualib/?.lua;"..workspace.."../../common/lualib/?.lua;".."./lualib/?.lua;"' >> ${config}
+echo 'lua_path = workspace.."script/?.lua;"..workspace.."lualib/?.lua;"..workspace.."../../common/lualib/?.lua;".."./lualib/?.lua;"' >> ${config}
 echo 'lua_cpath = workspace.."luaclib/?.so;"..workspace.."../../common/luaclib/?.so;".."./luaclib/?.so;"'  >> ${config}
 
 if [ "${is_deamon}" == "true" ]
