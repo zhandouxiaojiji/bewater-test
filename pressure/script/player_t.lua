@@ -1,8 +1,8 @@
-local skynet = require "skynet"
-local class = require "class"
-local json = require "cjson"
+local skynet    = require "skynet"
 local coroutine = require "skynet.coroutine"
-local util = require "util"
+local class     = require "class"
+local json      = require "cjson"
+local util      = require "util"
 
 local player_t = class("player_t")
 function player_t:ctor(ws, account)
@@ -15,7 +15,7 @@ function player_t:send(op, msg)
     print("send", op)
     self.ws:send_text(json.encode({
         id = op,
-        msg = msg,
+        msg = msg or {},
     }))
 end
 
@@ -84,6 +84,11 @@ function player_t:S2cFightStart(data)
     self:send("C2sFightGiveUp", {
         FightId = data.FightId,
     })
+end
+
+function player_t:ping()
+    print("&&&&&&&&&&&&& ping")
+    self:send("HearBeatPing")
 end
 
 return player_t
