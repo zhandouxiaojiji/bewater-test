@@ -1,5 +1,5 @@
 local skynet    = require "skynet"
-local db        = require "mongo_helper"
+local db        = require "db.mongo_helper"
 local def       = require "def"
 local conf      = require "conf"
 local wx        = require "auth.wx"
