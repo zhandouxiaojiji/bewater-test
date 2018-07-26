@@ -8,6 +8,6 @@ skynet.start(function()
     sname.start(sname.WEB)
 
     wx.init(conf.appid, conf.appsecret)
-    local game = skynet.newservice("ws/watchdog", "gamesvr.gamesvr", "gamesvr.player")
+    local game = skynet.newservice("ws/watchdog", "gamesvr", "player")
     skynet.call(game, "lua", "start", {port = 8002}, 1)
 end)
