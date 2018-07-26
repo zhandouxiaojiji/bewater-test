@@ -6,11 +6,11 @@ local player
 local ws
 local recv
 
-function init(player_t, url, account)
+function init(player_t, url, acc)
     player_t = require(player_t)
     ws = ws_client:new()
     ws:connect(string.format(url))
-    player = player_t.new(ws, account)
+    player = player_t.new(ws, acc)
     player:on_open()
     skynet.fork(function()
         while true do

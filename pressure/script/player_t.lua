@@ -5,10 +5,10 @@ local json      = require "cjson"
 local util      = require "util"
 
 local player_t = class("player_t")
-function player_t:ctor(ws, account)
+function player_t:ctor(ws, acc)
     self.ws = ws
     self.wait_op = ""
-    self.account = account or ""
+    self.acc = acc or ""
 end
 
 function player_t:send(op, msg)
@@ -58,9 +58,9 @@ function player_t:test_flow()
     local ret = self:call("C2sLogin", {
         WechatData = {"", "", ""},
         LoginType = 2,
-        OpenId = self.account,
+        OpenId = self.acc,
     })
-    self.account = ret.OpenId
+    self.acc = ret.OpenId
     if ret.Status == 0 then
         print("login success!")
     else
