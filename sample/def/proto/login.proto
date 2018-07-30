@@ -1,0 +1,34 @@
+syntax = "proto3";
+package login;
+
+message c2s_login {
+    string acc = 1;
+    int32 server_id = 2;
+    int32 platform = 3;
+    int32 session = 4;
+    string token = 5;
+};
+
+message s2c_login {
+	int32 err = 1;
+    bool reconnected = 2;
+    bool is_new = 3;
+    string war_name = 4;
+};
+
+message c2s_register {
+    string acc = 1;
+}
+message s2c_register {
+    int32 err = 1;    
+    string token = 2;
+}
+
+message c2s_check_acc {
+    string acc = 1;
+}
+message s2c_check_acc {
+    int32 err = 1;
+    string token = 2;
+}
+
