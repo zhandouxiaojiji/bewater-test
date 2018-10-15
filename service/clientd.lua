@@ -1,6 +1,6 @@
-local skynet = require "skynet"
-local conf = require "conf"
-local gm = require "gm"
+local skynet    = require "skynet"
+local conf      = require "conf"
+local gm        = require "gm"
 
 skynet.start(function()
     -- 后台服务
@@ -11,5 +11,4 @@ skynet.start(function()
     })
 
     gm.add_gmcmd("test", "gmcmd")
-
 end)

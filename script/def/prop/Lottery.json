@@ -1,0 +1,23 @@
+{
+	"1001":{"ITEM_SN" : 1001, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1002":{"ITEM_SN" : 1002, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1003":{"ITEM_SN" : 1003, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1004":{"ITEM_SN" : 1004, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1005":{"ITEM_SN" : 1005, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1006":{"ITEM_SN" : 1006, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1007":{"ITEM_SN" : 1007, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1008":{"ITEM_SN" : 1008, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1009":{"ITEM_SN" : 1009, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"1010":{"ITEM_SN" : 1010, "ITEM_NAME" : "", "PROB1" : 1000, "PROB2" : 0, "PROB3" : 500},
+	"2001":{"ITEM_SN" : 2001, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2002":{"ITEM_SN" : 2002, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2003":{"ITEM_SN" : 2003, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2004":{"ITEM_SN" : 2004, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2005":{"ITEM_SN" : 2005, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2006":{"ITEM_SN" : 2006, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2007":{"ITEM_SN" : 2007, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2008":{"ITEM_SN" : 2008, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2009":{"ITEM_SN" : 2009, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2010":{"ITEM_SN" : 2010, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500},
+	"2011":{"ITEM_SN" : 2011, "ITEM_NAME" : "", "PROB1" : 0, "PROB2" : 1000, "PROB3" : 500}
+}

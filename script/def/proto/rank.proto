@@ -1,0 +1,19 @@
+syntax = "proto3";
+package Rank; //排行榜
+
+message Player {
+    int64   uid         = 1;
+    int32   gender      = 2;
+    string  avatar      = 3;
+    string  nickname    = 4;
+    int32   level       = 5;
+    int32   segment     = 6;
+};
+
+message c2s_data {
+}
+message s2c_data {
+    int32 err = 1;
+    repeated Player battle_list = 2;
+    repeated Player world_list = 3;
+}

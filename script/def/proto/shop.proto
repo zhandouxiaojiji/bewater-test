@@ -1,0 +1,9 @@
+syntax = "proto3";
+package Shop;
+
+message c2s_buy {
+    int32 sn = 1;
+}
+message s2c_buy {
+    int32 err = 1;
+};

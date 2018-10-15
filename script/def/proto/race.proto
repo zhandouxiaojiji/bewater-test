@@ -1,0 +1,24 @@
+syntax = "proto3";
+package Race;
+
+message Item {
+    int32 item_sn = 1;
+    int32 item_num = 2;
+}
+
+message c2s_data {
+}
+message s2c_data {
+    int32 err = 1;
+    bool  has_reward = 2; //是否有奖励
+    int32 segment = 3;    //段位
+    int32 star = 4;      //分数（换算星星）
+    repeated Item reward_list = 5; //物品奖励
+}
+
+message c2s_reward {
+}
+
+message s2c_reward {
+    int32 err = 1;
+}

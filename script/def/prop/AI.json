@@ -1,0 +1,9 @@
+{
+	"1":{"TYPE" : 1, "WEIGHT" : 1},
+	"2":{"TYPE" : 2, "WEIGHT" : 6},
+	"3":{"TYPE" : 3, "WEIGHT" : 2},
+	"4":{"TYPE" : 4, "WEIGHT" : 3},
+	"5":{"TYPE" : 5, "WEIGHT" : 4},
+	"6":{"TYPE" : 6, "WEIGHT" : 5},
+	"7":{"TYPE" : 7, "WEIGHT" : 7}
+}

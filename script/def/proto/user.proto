@@ -1,0 +1,30 @@
+syntax = "proto3";
+package User;
+
+message c2s_data {
+};
+message s2c_data {
+	int32 err       = 1;
+    string nickname = 2; //昵称
+    string avatar   = 3; //头像
+    int32 level     = 4; //等级
+    int32 exp       = 5; //经验
+    int32 coin      = 6; //游戏币
+    int32 miaodou   = 7; //瞄豆
+    int32 redpack   = 8; //红包
+    int32 segment   = 9; //段位
+    int32 star      = 10;//段位分
+    int64 uid       = 11;
+    string acc      = 12;
+    map<int32, int32> dress = 20; //chessman_type -> item_sn
+};
+
+
+//换装
+message c2s_change_dress {
+    int32 chessman_type = 1; //棋子类型 -1, 1-7
+    int64 item_id = 2;
+}
+message s2c_change_dress {
+    int32 err = 1;
+}

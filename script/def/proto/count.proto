@@ -1,0 +1,15 @@
+syntax = "proto3";
+package Count; //计数器
+message c2s_data {
+}
+message s2c_data {
+	int32 err = 1;
+    map<string, int32> counters = 2;
+}
+
+message s2c_sync {
+    int32 err = 1;
+	string key = 2;
+	int32 num = 3;
+}
+

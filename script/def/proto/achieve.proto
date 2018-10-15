@@ -1,0 +1,27 @@
+syntax = "proto3";
+package Achieve; //成就
+
+message Achieve {
+    int32 sn = 1;
+    int32 count = 2;
+}
+
+message c2s_data {
+}
+message s2c_data {
+    int32 err = 1;
+    repeated Achieve achieves = 2;
+}
+
+message c2s_reward {
+    int32 sn = 1;
+}
+message s2c_reward {
+    int32 err = 1;
+}
+
+message s2c_sync {
+    int32 err = 1;
+    Achieve achieve = 2;
+}
+

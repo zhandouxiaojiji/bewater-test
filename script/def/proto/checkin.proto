@@ -1,0 +1,15 @@
+syntax = "proto3";
+package Checkin; //登陆奖励
+message c2s_data {
+}
+message s2c_data {
+    int32 err = 1;
+	int32 day = 2;
+    bool can_checkin = 3;
+}
+
+message c2s_reward {
+}
+message s2c_reward {
+	int32 err = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+package Lottery; //金蛋
+
+message Item {
+    int32 sn = 1;
+    int32 count = 2;
+}
+
+message c2s_open {
+}
+message s2c_open {
+    int32 err = 1;
+    repeated Item item_list = 2;
+}

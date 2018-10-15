@@ -1,0 +1,201 @@
+syntax = "proto3";
+package Battle;
+message Player {
+    int64   uid         = 1; // uid 小于1000为机器人，uid越大ai等级越高
+    int32   gender      = 2;
+    string  avatar      = 3;
+    string  nickname    = 4;
+    int32   level       = 5;
+    int32   segment     = 6;
+    int32   idx         = 7;
+    int32   status      = 8;
+    int32   hp          = 9;
+    string  acc         = 10;
+    map<int32, int32> dress = 20; //时装 chessman_type -> item_sn
+};
+message Team {
+    int64 team_id = 1;
+    int32 mode = 2;
+    repeated Player players = 3;
+};
+message Room {
+    int64 room_id = 1;
+    int32 mode = 2;
+    repeated Player players = 3;
+}
+
+message Stat {
+    int32 join = 1;
+    int32 win  = 2;
+    int32 best = 3;
+    int32 combo_win = 4;
+}
+
+message c2s_info {
+};
+message s2c_info {
+    int32 err = 1;
+    int64 team_id = 2;   //队伍id，非0表示正在组队中
+    int64 room_id = 3;   //房间id, 非0表示在房间中
+    int64 battle_id = 4; //战场id, 非0表示在战斗中
+    Stat stat = 5;
+};
+
+message c2s_match {
+    int32 mode = 1;
+};
+message s2c_match {
+	int32 err = 1;
+};
+
+message c2s_cancel_match {
+};
+message s2c_cancel_match {
+    int32 err = 1;
+};
+
+message c2s_create_team {
+    int32 mode = 1; //Def.BattleMode.FRIEND
+};
+message s2c_create_team {
+    int32 err = 1;
+    int64 team_id = 2; //分享时转发
+};
+
+message c2s_join_team {
+    int64 team_id = 1;
+};
+message s2c_join_team {
+    int32 err = 1;
+}
+
+message c2s_leave_team {
+};
+message s2c_leave_team {
+    int32 err = 1;
+};
+
+message c2s_create_room {
+    int32 mode = 1; //Def.BattleMode.FRIEND
+};
+message s2c_create_room {
+    int32 err = 1;
+    int64 room_id = 2; //分享时转发
+};
+
+message c2s_join_room {
+    int64 room_id = 1;
+};
+message s2c_join_room {
+    int32 err = 1;
+};
+
+message c2s_leave_room {
+};
+message s2c_leave_room {
+    int32 err = 1;
+};
+
+message c2s_room_ready {    
+};
+message s2c_room_ready {
+    int32 err = 1;
+};
+
+message c2s_data {
+};
+message s2c_data {
+    int32 err = 1;
+    repeated int32 tiles = 2;   //网格数据
+    repeated Player players = 3;//玩家数据
+    int32 round = 4;            //回合数据
+    int32 side = 5;             //轮到哪边
+    int32 time = 6;             //回合开始时间戳
+    int32 mode = 7;
+};
+
+message c2s_cmd {
+    int32 src = 1; //起始坐标
+    int32 dst = 2; //目标坐标(src == dst翻牌)
+};
+message s2c_cmd {
+    int32 err = 1;
+};
+
+message c2s_robot_cmd {
+    int64 uid = 1; //机器人uid
+    int32 src = 2;
+    int32 dst = 3;
+}
+message s2c_robot_cmd {
+    int32 err = 1;
+};
+
+message c2s_giveup {
+};
+message s2c_giveup {
+    int32 err = 1;
+};
+
+message c2s_double_reward {
+};
+message s2c_double_reward {
+    int32 err = 1;   
+};
+
+message c2s_revert_star {
+};
+message s2c_revert_star {
+    int32 err = 1;
+};
+
+message c2s_emoticon {
+    int32 sn = 1;
+};
+message s2c_emoticon {
+    int32 err = 1;
+};
+
+// server to client
+message s2c_match_ret {
+    int32 err = 1;
+    repeated Player players = 2;
+};
+
+message s2c_update_room {
+    int32 err = 1;
+    Room room = 2;
+};
+
+message s2c_update_team {
+    int32 err = 1;
+    Team team = 2;
+};
+
+message s2c_sync {
+    int32 err = 1;
+    int32 src = 2;    //起始坐标
+    int32 dst = 3;    //目标坐标
+    int32 chessman_id = 4; // 目标棋子id
+    int32 hp1 = 5; 
+    int32 hp2 = 6;
+}
+
+message s2c_sync_emoticon {
+    int32 err = 1;
+    int64 uid = 2;
+    int32 sn  = 3;
+}
+
+message s2c_battle_ready {
+    int32 err = 1;
+    int32 side = 2;
+}
+
+message s2c_battle_start {
+    int32 err = 1;
+};
+message s2c_battle_over {
+    int32 err = 1;
+    bool win = 2;
+};

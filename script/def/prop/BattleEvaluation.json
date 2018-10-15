@@ -1,0 +1,10 @@
+{
+	"4":{"SCORE" : 4, "DAMAGE" : [14,14], "DESC" : "完胜"},
+	"3":{"SCORE" : 3, "DAMAGE" : [8,13], "DESC" : "大胜"},
+	"2":{"SCORE" : 2, "DAMAGE" : [2,7], "DESC" : "小胜"},
+	"1":{"SCORE" : 1, "DAMAGE" : [1,1], "DESC" : "险胜"},
+	"-1":{"SCORE" : -1, "DAMAGE" : [-1,-1], "DESC" : "惜败"},
+	"-2":{"SCORE" : -2, "DAMAGE" : [-7,-2], "DESC" : "小败"},
+	"-3":{"SCORE" : -3, "DAMAGE" : [-13,-8], "DESC" : "大败"},
+	"-4":{"SCORE" : -4, "DAMAGE" : [-14,-14], "DESC" : "完败"}
+}

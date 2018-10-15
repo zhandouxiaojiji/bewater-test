@@ -1,0 +1,14 @@
+{
+	"1":{"SN" : 1, "NAME" : "无名新手", "TITLE" : "", "ICON" : "SegmentIcon_1", "TEXT_RES" : "SegmentRes_1", "STAR" : 1, "BATTLE_REWARD" : [1001,100], "SEASON_REWARD" : [], "AI" : [1,100]},
+	"2":{"SN" : 2, "NAME" : "起步熟手", "TITLE" : "起步勋章", "ICON" : "SegmentIcon_2", "TEXT_RES" : "SegmentRes_2", "STAR" : 2, "BATTLE_REWARD" : [1001,200], "SEASON_REWARD" : [], "AI" : [1,70,2,30]},
+	"3":{"SN" : 3, "NAME" : "小有成就", "TITLE" : "成就勋章", "ICON" : "SegmentIcon_3", "TEXT_RES" : "SegmentRes_3", "STAR" : 3, "BATTLE_REWARD" : [1001,300], "SEASON_REWARD" : [], "AI" : [1,50,2,50]},
+	"4":{"SN" : 4, "NAME" : "坚韧黑铁", "TITLE" : "黑铁勋章", "ICON" : "SegmentIcon_4", "TEXT_RES" : "SegmentRes_4", "STAR" : 4, "BATTLE_REWARD" : [1001,400], "SEASON_REWARD" : [], "AI" : [1,30,2,70]},
+	"5":{"SN" : 5, "NAME" : "倔强青铜", "TITLE" : "青铜勋章", "ICON" : "SegmentIcon_5", "TEXT_RES" : "SegmentRes_5", "STAR" : 5, "BATTLE_REWARD" : [1001,500], "SEASON_REWARD" : [], "AI" : [2,100]},
+	"6":{"SN" : 6, "NAME" : "不屈白银", "TITLE" : "白银勋章", "ICON" : "SegmentIcon_6", "TEXT_RES" : "SegmentRes_6", "STAR" : 6, "BATTLE_REWARD" : [1001,600], "SEASON_REWARD" : [], "AI" : [2,70,3,30]},
+	"7":{"SN" : 7, "NAME" : "荣耀黄金", "TITLE" : "黄金勋章", "ICON" : "SegmentIcon_7", "TEXT_RES" : "SegmentRes_7", "STAR" : 7, "BATTLE_REWARD" : [1001,700], "SEASON_REWARD" : [1001,2000], "AI" : [2,50,3,50]},
+	"8":{"SN" : 8, "NAME" : "尊贵白金", "TITLE" : "白金勋章", "ICON" : "SegmentIcon_8", "TEXT_RES" : "SegmentRes_8", "STAR" : 8, "BATTLE_REWARD" : [1001,800], "SEASON_REWARD" : [1001,3000], "AI" : [2,30,3,70]},
+	"9":{"SN" : 9, "NAME" : "睿智黑金", "TITLE" : "黑金勋章", "ICON" : "SegmentIcon_9", "TEXT_RES" : "SegmentRes_9", "STAR" : 9, "BATTLE_REWARD" : [1001,900], "SEASON_REWARD" : [1001,5000], "AI" : [3,70,4,30]},
+	"10":{"SN" : 10, "NAME" : "永恒钻石", "TITLE" : "钻石勋章", "ICON" : "SegmentIcon_10", "TEXT_RES" : "SegmentRes_10", "STAR" : 10, "BATTLE_REWARD" : [1001,1000], "SEASON_REWARD" : [2001,10], "AI" : [3,50,4,50]},
+	"11":{"SN" : 11, "NAME" : "至尊星耀", "TITLE" : "星耀勋章", "ICON" : "SegmentIcon_11", "TEXT_RES" : "SegmentRes_11", "STAR" : 11, "BATTLE_REWARD" : [1001,1100], "SEASON_REWARD" : [2001,30], "AI" : [3,30,4,70]},
+	"12":{"SN" : 12, "NAME" : "最强王者", "TITLE" : "王者勋章", "ICON" : "SegmentIcon_12", "TEXT_RES" : "SegmentRes_12", "STAR" : 12, "BATTLE_REWARD" : [1001,1200], "SEASON_REWARD" : [2001,50], "AI" : [4,100]}
+}

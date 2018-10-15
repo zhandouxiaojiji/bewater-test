@@ -1,0 +1,14 @@
+{
+	"101":{"SN" : 101, "ITEM_SN" : 3011, "ITEM_NUM" : 1, "NAME" : "秋道之力", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_7_2"},
+	"102":{"SN" : 102, "ITEM_SN" : 3012, "ITEM_NUM" : 1, "NAME" : "虎影", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_6_2"},
+	"103":{"SN" : 103, "ITEM_SN" : 3013, "ITEM_NUM" : 1, "NAME" : "旗木小白", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_5_2"},
+	"104":{"SN" : 104, "ITEM_SN" : 3014, "ITEM_NUM" : 1, "NAME" : "通灵之汪", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_4_2"},
+	"105":{"SN" : 105, "ITEM_SN" : 3015, "ITEM_NUM" : 1, "NAME" : "奈良利爪", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_3_2"},
+	"106":{"SN" : 106, "ITEM_SN" : 3016, "ITEM_NUM" : 1, "NAME" : "手里剑", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_2_2"},
+	"107":{"SN" : 107, "ITEM_SN" : 3017, "ITEM_NUM" : 1, "NAME" : "鬼灯小鼠", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 500, "ICON" : "Role_1_2"},
+	"108":{"SN" : 108, "ITEM_SN" : 3018, "ITEM_NUM" : 1, "NAME" : "忍者蛋", "DURATION" : 1, "MIAODOU" : 0, "COIN" : 300, "ICON" : "Role_0_2"},
+	"201":{"SN" : 201, "ITEM_SN" : 9001, "ITEM_NUM" : 1, "NAME" : "忍者套装", "DURATION" : 9999, "MIAODOU" : 998, "COIN" : 0, "ICON" : "Item_9001"},
+	"202":{"SN" : 202, "ITEM_SN" : 1001, "ITEM_NUM" : 1000, "NAME" : "1000金币", "DURATION" : 0, "MIAODOU" : 10, "COIN" : 0, "ICON" : "Item_1002"},
+	"203":{"SN" : 203, "ITEM_SN" : 1001, "ITEM_NUM" : 6000, "NAME" : "6000金币", "DURATION" : 0, "MIAODOU" : 50, "COIN" : 0, "ICON" : "Item_1003"},
+	"204":{"SN" : 204, "ITEM_SN" : 1001, "ITEM_NUM" : 12000, "NAME" : "12000金币", "DURATION" : 0, "MIAODOU" : 100, "COIN" : 0, "ICON" : "Item_1004"}
+}

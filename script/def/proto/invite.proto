@@ -1,0 +1,25 @@
+syntax = "proto3";
+package Invite;
+
+message Player {
+    int64 uid       = 1;
+    int32 gender    = 2;
+    string avatar   = 3;
+    string nickname = 4;
+}
+
+message c2s_data {
+}
+message s2c_data {
+    int32 err = 1;
+    map<int32, bool> recieved = 2;  //已领取
+    repeated Player list = 3;       //已邀请
+}
+
+message c2s_reward {
+    int32 sn = 1;
+}
+message s2c_reward {
+    int32 err = 1;
+}
+

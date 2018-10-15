@@ -1,0 +1,4 @@
+{
+	"RACE_BEGIN":{"NAME" : "RACE_BEGIN", "MON" : 0, "DAY" : 0, "WDAY" : 2, "HOUR" : 0, "MIN" : 0},
+	"RACE_END":{"NAME" : "RACE_END", "MON" : 0, "DAY" : 0, "WDAY" : 1, "HOUR" : 22, "MIN" : 0}
+}
