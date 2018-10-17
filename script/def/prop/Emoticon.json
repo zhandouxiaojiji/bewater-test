@@ -1,6 +1,10 @@
 {
-	"1":{"SN" : 1, "COIN" : 10, "RES" : "Item_1001"},
-	"2":{"SN" : 2, "COIN" : 10, "RES" : "Item_1002"},
-	"3":{"SN" : 3, "COIN" : 10, "RES" : "Item_1003"},
-	"4":{"SN" : 4, "COIN" : 10, "RES" : "Item_1004"}
+	"1":{"SN" : 1, "TYPE" : 1, "RES" : "exp_001", "ICON" : "exp_101", "COST" : 10},
+	"2":{"SN" : 2, "TYPE" : 2, "RES" : "exp_002", "ICON" : "exp_102", "COST" : 10},
+	"3":{"SN" : 3, "TYPE" : 2, "RES" : "exp_003", "ICON" : "exp_103", "COST" : 10},
+	"4":{"SN" : 4, "TYPE" : 0, "RES" : "exp_004", "ICON" : "exp_104", "COST" : 10},
+	"5":{"SN" : 5, "TYPE" : 0, "RES" : "exp_005", "ICON" : "exp_105", "COST" : 10},
+	"6":{"SN" : 6, "TYPE" : 0, "RES" : "exp_006", "ICON" : "exp_106", "COST" : 10},
+	"7":{"SN" : 7, "TYPE" : 0, "RES" : "exp_007", "ICON" : "exp_107", "COST" : 10},
+	"8":{"SN" : 8, "TYPE" : 0, "RES" : "exp_008", "ICON" : "exp_108", "COST" : 10}
 }
