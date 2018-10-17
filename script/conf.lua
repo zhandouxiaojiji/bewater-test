@@ -21,6 +21,14 @@ local conf = {
             version     = "1.1.0",
         }, 
     },
+
+    mysql = {
+        host = "127.0.0.1",
+        port = 3306,
+        name = "test",
+        user = "mysql",
+    },
+
    
 }
 return conf
