@@ -3,7 +3,7 @@ local workspace = skynet.getenv('workspace')
 local conf = {
     workspace = workspace,
 
-    proj = "client",
+    proj = "test",
     dest = "测试节点",
 
     webconsole = {

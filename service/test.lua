@@ -1,7 +1,7 @@
 local skynet    = require "skynet"
-local gmcmd     = require "gmcmd"
-local pressure  = require "pressure"
-local testmysql = require "testmysql"
+--local gmcmd     = require "gmcmd"
+--local pressure  = require "pressure"
+--local testmysql = require "testmysql"
 
 function test_timer()
     local timer = require "timer"
@@ -19,8 +19,10 @@ function test_timer()
 end
 
 skynet.start(function()
+    print "welcome to bewater"
+
     --gmcmd.test()
     --pressure.test("animal", 10, 2000)
     --test_timer()
-    testmysql.query1()
+    --testmysql.query1()
 end)
