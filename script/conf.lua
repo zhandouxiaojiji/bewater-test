@@ -29,6 +29,19 @@ local conf = {
         user = "mysql",
     },
 
+    mongo = {
+        host = "127.0.0.1",
+        port = 19999,
+        name = "test",
+    },
+
+    -- 通用节点
+    cluster = {
+        monitor = "127.0.0.1:19800",
+        share   = "127.0.0.1:19801",
+        test    = "127.0.0.1:19802",
+    },
+    clustername = skynet.getenv "clustername",
    
 }
 return conf
