@@ -1,112 +1,67 @@
-local skynet    = require "skynet"
-local conf      = require "conf"
-local def       = require "def"
-local util      = require "util"
-local robot_t   = require "ws.robot_t"
-local opcode    = require "def.opcode"
-local http      = require "web.http_helper"
-local protobuf  = require "protobuf"
+local Skynet    = require "skynet"
+local Conf      = require "conf"
+local Util      = require "util"
+local Robot     = require "ws.robot_t"
+local Opcode    = require "def.opcode"
+local Protobuf  = require "protobuf"
 
 local server_name, idx = ...
 local clientd
 
-local test_conf = conf.pressure[server_name]
+local test_conf = Conf.pressure[server_name]
 
 local function create()
-    skynet.fork(function()
+    Skynet.fork(function()
         local uid
-        local c = robot_t.new(string.format("ws://%s:%d", 
-            test_conf.host, test_conf.port), "binary")                                                                                                                                                                                             
-        function c:user_s2c_data(data)
-            --print("&&& user")
-            --util.printdump(data)  
-        end
-        function c:bag_s2c_data(data)
-            --print("&&&& bag")
-            --util.printdump(data)
-        end
-        function c:battle_s2c_info(data)
-            --print("&&&&&& battle_s2c_info")
-        end
-        function c:battle_s2c_match_ret(data)
-            --print("&&&&& battle_s2c_match")
-            --util.printdump(data)
-        end
-        function c:achieve_s2c_data(data)
-            --print("&&&&& achieve_s2c_data")
-            --util.printdump(data)
-        end
-        function c:achieve_s2c_sync(data)
-            --print("&&& achieve_s2c_sync")
-            --util.printdump(data)
-        end
-        function c:invite_s2c_data(data)
-            --print("&&&&&&&& invite_s2c_data")
-            --util.printdump(data)
-        end
-        function c:battle_s2c_battle_start(data)
-            --c:send(opcode.Battle.c2s_emoticon, {sn = 1})
-            --c:send(opcode.Gm.c2s_cmd, {cmd = string.format("gamesvr gameover %s 1", uid)})
-        end
-        function c:battle_s2c_battle_over(data)
-            --util.printdump(data)
-            --print("&&&&& battle_s2c_battle_over")
-            if data.win then
-                c:send(opcode.Battle.c2s_double_reward)
-            else
-                c:send(opcode.Battle.c2s_revert_star)
-            end
-        end
-        
-        c:test(function()
-            local ret = c:call(opcode.Login.c2s_login, {
+        local c = Robot.new(string.format("ws://%s:%d",
+            test_conf.host, test_conf.port), "binary")
+
+        c.test(function()
+            local ret = c:call(Opcode.Login.c2s_login, {
                 acc = "TEST"..idx,
                 login_type = 2,
                 version = "1.1.0",
-            })  
+            })
             uid = ret.uid
 
             c:wait(100)
-            ret = c:call(opcode.Gm.c2s_cmd, {
+            c:call(Opcode.Gm.c2s_cmd, {
                 --cmd = string.format("gamesvr segment %s 1", uid),
                 cmd = string.format("gamesvr invite %s", uid),
             })
             --print(ret.msg)
-            ret = c:call(opcode.Invite.c2s_reward, {sn = 3})
-            --ret = c:call(opcode.Race.c2s_reward)
+            c:call(Opcode.Invite.c2s_reward, {sn = 3})
+            --ret = c:call(Opcode.Race.c2s_reward)
 
-            --ret = c:call(opcode.Race.c2s_data)
+            --ret = c:call(Opcode.Race.c2s_data)
 
-            ret = c:call(opcode.Shop.c2s_buy, {sn = 201})
-            ret = c:call(opcode.User.c2s_change_dress, {
+            c:call(Opcode.Shop.c2s_buy, {sn = 201})
+            c:call(Opcode.User.c2s_change_dress, {
                 chessman_type = 7,
                 item_id = 3001,
             })
 
-            --ret = c:call(opcode.Checkin.c2s_data)
+            --ret = c:call(Opcode.Checkin.c2s_data)
             --print(ret.can_checkin)
             --print(ret.day)
-            --ret = c:call(opcode.Checkin.c2s_reward, {})
+            --ret = c:call(Opcode.Checkin.c2s_reward, {})
             --print(ret.err)
 
-            ret = c:call(opcode.Achieve.c2s_reward, {sn = 20801})
+            c:call(Opcode.Achieve.c2s_reward, {sn = 20801})
 
-            --ret = c:call(opcode.Battle.c2s_match, {mode = def.BattleMode.RACE})
-            
-            ret = c:call(opcode.Rank.c2s_data)
-            --util.printdump(ret)
+            ret = c:call(Opcode.Rank.c2s_data)
+            Util.printdump(ret)
 
-            --skynet.sleep(100)
-            --ret = c:call(opcode.Battle.c2s_cancel_match)
+            --Skynet.sleep(100)
+            --ret = c:call(Opcode.Battle.c2s_cancel_match)
 
-            --skynet.sleep(700)
-            --ret = c:call(opcode.Battle.c2s_data)
-            --util.printdump(ret)
+            --Skynet.sleep(700)
+            --ret = c:call(Opcode.Battle.c2s_data)
+            --Util.printdump(ret)
 
-          
-            --ret = c:call(opcode.Race.c2s_data)
-            --util.printdump(ret)
-            --ret = c:call(opcode.Race.c2s_reward)
+            --ret = c:call(Opcode.Race.c2s_data)
+            --Util.printdump(ret)
+            --ret = c:call(Opcode.Race.c2s_reward)
         end)
 
         idx = idx + 1
@@ -117,18 +72,18 @@ end
 local CMD = {}
 function CMD.start(count, addr)
     clientd = addr
-    for i = 1, count do
-        create()    
-        local total = skynet.call(clientd, "lua", "total")
-        skynet.error(string.format("robot %d start", total))
-        skynet.sleep(100)
+    for _ = 1, count do
+        create()
+        local total = Skynet.call(clientd, "lua", "total")
+        Skynet.error(string.format("robot %d start", total))
+        Skynet.sleep(100)
     end
 end
 
-skynet.start(function()
-    protobuf.register_file(test_conf.workspace.."/script/def/proto/package.pb")
-    skynet.dispatch("lua", function(_, _, cmd, ...)
+Skynet.start(function()
+    Protobuf.register_file(test_conf.workspace.."/script/def/proto/package.pb")
+    Skynet.dispatch("lua", function(_, _, cmd, ...)
         local f = assert(CMD[cmd], cmd)
-        skynet.ret(f(...))
+        Skynet.ret(f(...))
     end)
 end)

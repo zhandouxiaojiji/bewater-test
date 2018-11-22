@@ -13,3 +13,8 @@ exclude_files = {
     "script/def/proto/*",
     "script/def/prop/*",
 }
+
+ignore = {
+    "i",
+    "bash",
+}

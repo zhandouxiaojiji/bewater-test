@@ -19,7 +19,7 @@ local conf = {
             acc         = "TEST",
             workspace   = workspace.."/../animal",
             version     = "1.1.0",
-        }, 
+        },
     },
 
     mysql = {
@@ -42,6 +42,5 @@ local conf = {
         test    = "127.0.0.1:19802",
     },
     clustername = skynet.getenv "clustername",
-   
 }
 return conf

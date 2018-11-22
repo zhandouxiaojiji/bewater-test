@@ -2,7 +2,7 @@ local const = require "const"
 return const {
     ZERO_POINT      = 0,    -- 零点
     PING_TIMEOUT    = 300,
-    MAX_HP          = 14, 
+    MAX_HP          = 14,
     MAX_SEGMENT     = 12,
     BATTLE_CD       = 30,
     ROBOT_UID       = 1000, -- uid小于1000为机器人
@@ -35,7 +35,7 @@ return const {
     BattleMode = {
         RACE    = 1, -- 排位赛
         FRIEND  = 2, -- 好友对战
-    },    
+    },
 
     BattleStatus = {
         WAITING = 1,
@@ -73,5 +73,5 @@ return const {
         KILL_TYPE       = "kill_type",
         FOOTBALL_KILL   = "football_kill",
     },
-    
+
 }
