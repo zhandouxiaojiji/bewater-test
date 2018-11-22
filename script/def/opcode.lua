@@ -1,3 +1,3 @@
-local opcode = require "def.opcode_helper"
+local Opcode = require "def.opcode_helper"
 
-return opcode
+return Opcode

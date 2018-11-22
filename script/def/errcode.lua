@@ -1,5 +1,5 @@
-local errcode = require "def.errcode_helper"
-local REG = errcode.REG
+local Errcode = require "def.errcode_helper"
+local REG = Errcode.REG
 
 REG("NOT_IN_BATTLE",        0x1000, "不处于战斗中")
 REG("ALREADY_IN_ROOM",      0x1001, "已处于房间中")
@@ -28,4 +28,4 @@ REG("INVITE_NOT_ENOUGH",    0x1200, "邀请人数不够")
 
 REG("REPEAT_BUY_DRESS",     0x1300, "已拥有该皮肤")
 REG("REPEAT_BUY_SUIT",      0x1301, "已拥有该套装")
-return errcode
+return Errcode
