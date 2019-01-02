@@ -1,18 +1,20 @@
-local Skynet = require "skynet"
-local Service = require "skynet.service"
+local skynet = require "skynet"
+local service = require "skynet.service"
 
-Skynet.start(function()
+skynet.start(function()
     print "test"
+    skynet.newservice("testservice")
 end)
 
+--[[
 local a = 1
-Skynet.init(function()
-    Service.new("testservice", function()
-        local Skynet = require "skynet"
-        Skynet.start(function()
+skynet.init(function()
+    service.new("testservice", function()
+        local skynet = require "skynet"
+        skynet.start(function()
             print(a)
             print "hello"
         end)
     end)
 end)
-
+]]
